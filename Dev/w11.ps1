@@ -130,22 +130,9 @@ if (Test-HPIASupport){
     $Global:MyOSDCloud.HPBIOSUpdate = [bool]$true
     #$Global:MyOSDCloud.HPCMSLDriverPackLatest = [bool]$true #In Test 
     #Set HP BIOS Settings to what I want:
-    iex (irm https://raw.githubusercontent.com/gwblok/garytown/master/OSD/CloudOSD/Manage-HPBiosSettings.ps1)
+    iex (irm https://raw.githubusercontent.com/NovofermNL/Public/main/Prod/Manage-HPBiosSettings.ps1)
     Manage-HPBiosSettings -SetSettings
 }
-
-if ($Manufacturer -match "Lenovo") {
-    #Set Lenovo BIOS Settings to what I want:
-    iex (irm https://raw.githubusercontent.com/gwblok/garytown/master/OSD/CloudOSD/Manage-LenovoBiosSettings.ps1)
-    try {
-        Manage-LenovoBIOSSettings -SetSettings
-    }
-    catch {
-        <#Do this if a terminating exception happens#>
-    }
-    
-}
-
 
 #write variables to console
 Write-SectionHeader "OSDCloud Variables"
